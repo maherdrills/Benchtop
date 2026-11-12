@@ -136,6 +136,71 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
     var(--card);
   box-shadow:0 25px 70px rgba(0,0,0,.35);
 }
+.tool-strip{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 1.25rem 5rem;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:.75rem;
+}
+
+.tool-card{
+  min-height:150px;
+  padding:1.25rem;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:linear-gradient(145deg,rgba(255,159,28,.045),var(--card));
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+
+.tool-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,159,28,.45);
+  background:linear-gradient(145deg,rgba(255,159,28,.09),var(--card));
+}
+
+.tool-num{
+  font:600 .68rem Outfit,sans-serif;
+  letter-spacing:.12em;
+  color:var(--pri);
+}
+
+.tool-card strong{
+  display:block;
+  font:700 1.05rem Outfit,sans-serif;
+  letter-spacing:.04em;
+  margin-bottom:.35rem;
+}
+
+.tool-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.45;
+}
+
+.tool-arrow{
+  align-self:flex-end;
+  color:var(--pri);
+  font-size:1.1rem;
+}
+
+@media (max-width:800px){
+  .tool-strip{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:500px){
+  .tool-strip{
+    grid-template-columns:1fr;
+    padding-bottom:3rem;
+  }
+}                                   
 </style>
 </head>
 <body>
@@ -153,7 +218,43 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
   </div>
   <div class="card rv" style="--i:2" id="profile">   <div style="font:600 .72rem Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--pri);margin-bottom:1.2rem">     BENCHTOP / SYSTEM   </div>    <h3 style="font:700 1.45rem Outfit,sans-serif;margin:0 0 .6rem">     Your engineering toolkit.   </h3>    <p style="color:var(--muted);line-height:1.6;margin:0 0 1.5rem">     Everything you need to study smarter, calculate faster and build your engineering career.   </p>    <div style="display:grid;gap:.65rem">     <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Calculators</span>       <strong style="color:var(--pri)">READY</strong>     </div>      <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Formula sheets</span>       <strong style="color:var(--pri)">READY</strong>     </div>      <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Mock tests</span>       <strong style="color:var(--pri)">READY</strong>     </div>      <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Career tools</span>       <strong style="color:var(--pri)">READY</strong>     </div>   </div>    <div style="margin-top:1.4rem;padding:.8rem 1rem;border:1px solid rgba(255,159,28,.25);background:rgba(255,159,28,.06);border-radius:8px;font-size:.82rem;color:var(--muted)">     <span style="color:var(--pri)">●</span>     Engineering mode active   </div> </div>
 </section>
+<section class="tool-strip">
+  <div class="tool-card rv">
+    <span class="tool-num">01</span>
+    <div>
+      <strong>CALCULATE</strong>
+      <p>GPA, grades and engineering numbers.</p>
+    </div>
+    <span class="tool-arrow">↗</span>
+  </div>
 
+  <div class="tool-card rv" style="--i:1">
+    <span class="tool-num">02</span>
+    <div>
+      <strong>CONVERT</strong>
+      <p>Units, quantities and engineering values.</p>
+    </div>
+    <span class="tool-arrow">↗</span>
+  </div>
+
+  <div class="tool-card rv" style="--i:2">
+    <span class="tool-num">03</span>
+    <div>
+      <strong>REVISE</strong>
+      <p>Formula sheets built for fast revision.</p>
+    </div>
+    <span class="tool-arrow">↗</span>
+  </div>
+
+  <div class="tool-card rv" style="--i:3">
+    <span class="tool-num">04</span>
+    <div>
+      <strong>BUILD</strong>
+      <p>Careers, industries and engineering skills.</p>
+    </div>
+    <span class="tool-arrow">↗</span>
+  </div>
+</section>
 <section id="gpa">
   <h2 class="rv">GPA calculator</h2>
   <p class="sub rv">Add each course with its grade and credits. Uses the US 4.0 scale; other systems (such as the Italian 30-point scale) need their own conversion.</p>
