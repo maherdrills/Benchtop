@@ -518,35 +518,6 @@ const T=[
 [["The largest unsigned integer in 8 bits is:",["127","255","256","511"],1],["De Morgan’s law says ¬(A·B) equals:",["¬A·¬B","¬A + ¬B","A + B","A·¬B"],1],["Binary search on a sorted array has time complexity:",["O(n)","O(log n)","O(n log n)","O(1)"],1],["If 50% of a program is sped up infinitely, Amdahl’s law gives a maximum overall speedup of:",["1.5×","2×","4×","Unlimited"],1],["Which data structure follows first-in, first-out order?",["Stack","Queue","Tree","Heap"],1]]];
 tabs("#tt",i=>{   const pool=[...T[i]];   const t=pool.sort(()=>Math.random()-0.5).slice(0,5).map(q=>{     const options=q[1].map((text,index)=>({text,index}));     options.sort(()=>Math.random()-0.5);     return [       q[0],       options.map(o=>o.text),       options.findIndex(o=>o.index===q[2])     ];   });$("#tp").innerHTML=t.map((q,n)=>`<fieldset class="q"><legend>${n+1}. ${q[0]}</legend>${q[1].map((o,k)=>`<label data-k="${k}"><input type="radio" name="q${n}" value="${k}"> ${o}</label>`).join("")}</fieldset>`).join("")+`<button class="btn" id="chk" type="button">Check answers</button> <span class="big" id="sc" style="font-size:1.6rem"></span>`;
   $("#chk").onclick=()=>{
-  let s=0;
-
-  t.forEach((q,n)=>{
-    const ls=document.querySelectorAll(`[name=q${n}]`);
-    let answered=false;
-
-    ls.forEach(r=>{
-      const l=r.parentElement;
-      l.classList.remove("ok","bad");
-      l.querySelector(".answer-state")?.remove();
-
-      if(r.checked){
-        answered=true;
-
-        const state=document.createElement("span");
-        state.className="answer-state";
-
-        if(+r.value===q[2]){
-          s++;
-          l.classList.add("ok");
-          state.textContent="✓ CORRECT";
-        }else{
-          l.classList.add("bad");
-          state.textContent="✕ INCORRECT";
-        }
-
-        l.appendChild(state);
-      }
-    });
 
     if(!answered){
       const correct=ls[q[2]].parentElement;
