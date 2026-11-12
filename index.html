@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Benchtop: the engineering student hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+:root{--bg:#F5F7FB;--card:#fff;--ink:#12203B;--muted:#56637E;--line:#E1E6F0;--pri:#3557FF;--pri-ink:#fff;--mint:#12B5A0;--warm:#FFB703;--ok:#0E8A63;--bad:#C62828;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0E1424;--card:#161E33;--ink:#E8EDFA;--muted:#9AA7C4;--line:#26304B;--pri:#8EA2FF;--pri-ink:#0E1424;--mint:#3DDCC4;--ok:#4ADE9E;--bad:#FF8A80}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0E1424;--card:#161E33;--ink:#E8EDFA;--muted:#9AA7C4;--line:#26304B;--pri:#8EA2FF;--pri-ink:#0E1424;--mint:#3DDCC4;--ok:#4ADE9E;--bad:#FF8A80}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(5rem + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "DM Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:30}
+h1,h2,h3{font-family:Outfit,system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:var(--pri)}
+:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+#bar{position:fixed;left:0;right:0;top:0;height:3px;background:var(--pri);transform:scaleX(0);transform-origin:0 50%;z-index:40}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:0 auto;padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem}
+.logo{font:700 1.3rem Outfit,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto}
+.links{display:flex;gap:.25rem;overflow-x:auto}
+.links a{padding:.4rem .75rem;border-radius:99px;color:var(--muted);text-decoration:none;font-weight:500;white-space:nowrap}
+.links a:hover{background:var(--bg);color:var(--ink)}
+#hi{font-weight:500;white-space:nowrap}
+section{max-width:1100px;margin:0 auto;padding:4.5rem 1.25rem 0}
+.hero{display:grid;gap:2rem;padding-top:3.5rem;align-items:center}
+h1{font-size:clamp(2.4rem,6.5vw,4.4rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:.5rem}
+.lead{color:var(--muted);font-size:1.15rem;max-width:52ch;margin:1rem 0 0}
+.sub{color:var(--muted);margin:0 0 1.5rem;max-width:62ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.5rem;box-shadow:0 10px 30px -18px rgba(18,32,59,.35)}
+label{display:grid;gap:.3rem;font-weight:500;font-size:.95rem}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:.6rem .75rem;width:100%;min-width:0}
+input:focus,select:focus{border-color:var(--pri)}
+.grid2{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.stack{display:grid;gap:.9rem}
+.btn{font:700 1rem "DM Sans",sans-serif;background:var(--pri);color:var(--pri-ink);border:0;border-radius:10px;padding:.7rem 1.2rem;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--pri);border:1.5px solid var(--pri)}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;margin-bottom:1.25rem;padding-bottom:.25rem}
+.tabs button{flex:0 0 auto;font:500 .95rem "DM Sans",sans-serif;padding:.5rem 1rem;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.row{display:grid;grid-template-columns:1.4fr 1fr .8fr auto;gap:.6rem;margin-bottom:.6rem;align-items:center}
+.x{border:0;background:transparent;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1}
+.res{margin-top:1.25rem;padding:1rem 1.25rem;border-radius:14px;background:var(--bg);display:flex;gap:1.5rem;align-items:baseline;flex-wrap:wrap}
+.big{font:700 clamp(2.2rem,6vw,3.2rem) Outfit,sans-serif;color:var(--pri)}
+.mut{color:var(--muted)}
+.fgrid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.f{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem}
+.f b{display:block;font-weight:500;color:var(--muted);font-size:.9rem;margin-bottom:.25rem}
+.f code{font:500 1.05rem/1.4 "DM Sans",sans-serif;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.q{border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:0 0 .9rem;background:var(--card)}
+.q legend{font-weight:700;padding:0 .4rem}
+.q label{display:flex;gap:.6rem;align-items:center;font-weight:400;padding:.3rem .4rem;border-radius:8px}
+.q label input{width:auto}
+.q .ok{background:color-mix(in srgb,var(--ok) 18%,transparent)}
+.q .bad{background:color-mix(in srgb,var(--bad) 18%,transparent)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 1.25rem}
+.chip{background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:.3rem .8rem;font-size:.92rem}
+.cols{display:grid;gap:1.25rem}
+.bar{display:grid;grid-template-columns:5.5rem 1fr 4.5rem;gap:.75rem;align-items:center;margin:.55rem 0}
+.bar i{display:block;height:12px;border-radius:99px;background:var(--bg);overflow:hidden}
+.bar i span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--pri),var(--mint));transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.bar b{text-align:right;font-variant-numeric:tabular-nums}
+.news a{display:block;padding:.7rem 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none}
+.news a:hover strong{color:var(--pri)}
+.news small{color:var(--muted);display:block}
+footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--muted);font-size:.9rem}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+@media (min-width:860px){.hero{grid-template-columns:1.15fr 1fr}.cols{grid-template-columns:1.1fr 1fr}}
+@media (max-width:560px){.row{grid-template-columns:1fr 1fr}.row .x{grid-column:2;justify-self:end}.grid2{grid-template-columns:1fr}#hi{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.bar i span{transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header><div class="nav">
+  <a class="logo" href="#top">Benchtop</a>
+  <nav class="links" aria-label="Sections"><a href="#gpa">GPA</a><a href="#convert">Converter</a><a href="#formulas">Formulas</a><a href="#tests">Mock tests</a><a href="#careers">Careers</a></nav>
+  <span id="hi"></span>
+</div></header>
+
+<section class="hero" id="top">
+  <div class="rv">
+    <h1>Your engineering toolkit, in one place.</h1>
+    <p class="lead">Calculate your semester GPA, convert any unit, revise key formulas, take mock tests and explore careers across five engineering majors.</p>
+  </div>
+  <div class="card rv" style="--i:2" id="profile"></div>
+</section>
+
+<section id="gpa">
+  <h2 class="rv">GPA calculator</h2>
+  <p class="sub rv">Add each course with its grade and credits. Uses the US 4.0 scale; other systems (such as the Italian 30-point scale) need their own conversion.</p>
+  <div class="card rv" style="--i:1">
+    <div id="rows"></div>
+    <button class="btn ghost" id="add" type="button">Add course</button>
+    <div class="res"><span class="big" id="gpa-out">0.00</span><span class="mut" id="gpa-meta">Enter your courses to see your semester GPA.</span></div>
+  </div>
+</section>
+
+<section id="convert">
+  <h2 class="rv">Unit converter</h2>
+  <p class="sub rv">Fourteen quantities used across every engineering major, including temperature.</p>
+  <div class="card rv" style="--i:1">
+    <div class="stack">
+      <label>Quantity<select id="cat"></select></label>
+      <div class="grid2"><label>Value<input id="cv" type="number" step="any" value="1"></label><label>From<select id="cf"></select></label></div>
+      <div class="grid2"><label>To<select id="ct"></select></label><button class="btn ghost" id="swap" type="button" style="align-self:end">Swap units</button></div>
+    </div>
+    <div class="res"><span class="big" id="cr">0</span><span class="mut" id="cu"></span></div>
+  </div>
+</section>
+
+<section id="formulas">
+  <h2 class="rv">Formula sheet</h2>
+  <p class="sub rv">The essentials for each major, in one place for quick revision.</p>
+  <div class="tabs rv" id="ft" role="tablist"></div>
+  <div class="fgrid" id="fp"></div>
+</section>
+
+<section id="tests">
+  <h2 class="rv">Mock tests</h2>
+  <p class="sub rv">Five questions per major. Answer them all, then check your score.</p>
+  <div class="tabs rv" id="tt" role="tablist"></div>
+  <div id="tp"></div>
+</section>
+
+<section id="careers">
+  <h2 class="rv">Majors, careers and news</h2>
+  <p class="sub rv">What each major is about, typical jobs, rough average salaries and recent headlines.</p>
+  <div class="tabs rv" id="ct2" role="tablist"></div>
+  <div class="card" id="cp"></div>
+</section>
+
+<footer>Salaries are rough yearly averages in thousands of US dollars, based on general public salary surveys (for example US government medians). Real pay varies a lot by country, employer and experience, so treat them as a starting point. News is a snapshot from 12 November 2026 with links to each source. Your profile is stored only in this browser.</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const fmt=n=>{if(!isFinite(n))return"n/a";const a=Math.abs(n);if(a!==0&&(a>=1e9||a<1e-4))return n.toExponential(4);return Number(n.toPrecision(7)).toLocaleString("en",{maximumFractionDigits:8})};
+const M=["Electrical","Mechanical","Chemical","Civil","Computer"];
+
+/* profile */
+let me=null;try{me=JSON.parse(localStorage.getItem("bt-me")||"null")}catch(e){}
+function profile(){
+  const p=$("#profile");
+  if(me){p.innerHTML=`<h3>Welcome, ${me.f}!</h3><p class="mut">${me.f} ${me.l}<br>${me.u}<br>${me.e}</p><p>Your tools are ready below. Start with the GPA calculator or a mock test.</p><button class="btn ghost" id="edit" type="button">Edit profile</button>`;
+    $("#hi").textContent="Hi, "+me.f;$("#edit").onclick=()=>{me=null;profile()};return}
+  $("#hi").textContent="";
+  p.innerHTML=`<h3 style="margin-bottom:1rem">Create your student profile</h3><form class="stack" id="pf"><div class="grid2"><label>First name<input name="f" required autocomplete="given-name"></label><label>Surname<input name="l" required autocomplete="family-name"></label></div><label>Email<input name="e" type="email" required autocomplete="email"></label><label>University<input name="u" required autocomplete="organization"></label><button class="btn" type="submit">Save profile</button><span class="mut" style="font-size:.85rem">Saved only in this browser. Nothing is sent anywhere.</span></form>`;
+  $("#pf").onsubmit=ev=>{ev.preventDefault();const d=new FormData(ev.target);me={f:d.get("f").trim(),l:d.get("l").trim(),e:d.get("e").trim(),u:d.get("u").trim()};
+    try{localStorage.setItem("bt-me",JSON.stringify(me))}catch(e){}profile()};
+}
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+if(me)for(const k in me)me[k]=esc(String(me[k]));
+profile();
+
+/* GPA */
+const G=[["A",4],["A-",3.7],["B+",3.3],["B",3],["B-",2.7],["C+",2.3],["C",2],["C-",1.7],["D",1],["F",0]];
+function addRow(n,g,c){const d=document.createElement("div");d.className="row";
+  d.innerHTML=`<input aria-label="Course name" placeholder="Course name" value="${n||""}"><select aria-label="Grade">${G.map(x=>`<option value="${x[1]}"${x[1]==g?" selected":""}>${x[0]} (${x[1].toFixed(1)})</option>`).join("")}</select><input aria-label="Credits" type="number" min="0" step="0.5" value="${c||3}"><button class="x" type="button" aria-label="Remove course">×</button>`;
+  d.querySelector(".x").onclick=()=>{d.remove();gpa()};$("#rows").appendChild(d)}
+function gpa(){let p=0,c=0;document.querySelectorAll("#rows .row").forEach(r=>{const g=parseFloat(r.children[1].value),k=parseFloat(r.children[2].value);if(k>0){p+=g*k;c+=k}});
+  $("#gpa-out").textContent=c?(p/c).toFixed(2):"0.00";$("#gpa-meta").textContent=c?`${fmt(c)} credits, ${fmt(p)} grade points`:"Enter your courses to see your semester GPA."}
+[["Mathematics",3.7,4],["Physics",3,4],["Programming",4,3],["Circuits",3.3,3]].forEach(r=>addRow(...r));
+$("#add").onclick=()=>{addRow("",4,3);gpa()};$("#rows").addEventListener("input",gpa);gpa();
+
+/* converter */
+const U={Length:{m:1,km:1e3,cm:.01,mm:.001,in:.0254,ft:.3048,yd:.9144,mi:1609.344},Area:{"m²":1,"cm²":1e-4,"mm²":1e-6,"km²":1e6,ha:1e4,"in²":6.4516e-4,"ft²":.09290304,acre:4046.8564},Volume:{"m³":1,L:.001,mL:1e-6,"in³":1.6387064e-5,"ft³":.0283168466,"gal (US)":.003785411784},Mass:{kg:1,g:.001,t:1e3,lb:.45359237,oz:.028349523},Force:{N:1,kN:1e3,lbf:4.4482216,kgf:9.80665},Pressure:{Pa:1,kPa:1e3,MPa:1e6,bar:1e5,atm:101325,psi:6894.757,mmHg:133.322},Energy:{J:1,kJ:1e3,kWh:3.6e6,cal:4.184,kcal:4184,BTU:1055.056,"ft·lbf":1.355818},Power:{W:1,kW:1e3,MW:1e6,hp:745.69987,"BTU/h":.29307107},Speed:{"m/s":1,"km/h":1/3.6,mph:.44704,kn:.514444,"ft/s":.3048},Torque:{"N·m":1,"lbf·ft":1.3558179,"kgf·m":9.80665},Density:{"kg/m³":1,"g/cm³":1e3,"lb/ft³":16.018463},Viscosity:{"Pa·s":1,"mPa·s (cP)":1e-3,P:.1},Flow:{"m³/s":1,"L/s":1e-3,"m³/h":1/3600,"gal/min":6.30902e-5,"ft³/min":4.71947e-4},Temperature:{"°C":1,K:1,"°F":1}};
+const opts=a=>a.map(x=>`<option>${x}</option>`).join("");
+$("#cat").innerHTML=opts(Object.keys(U));
+function units(){const u=Object.keys(U[$("#cat").value]);$("#cf").innerHTML=opts(u);$("#ct").innerHTML=opts(u);$("#ct").selectedIndex=Math.min(1,u.length-1);conv()}
+function conv(){const c=$("#cat").value,v=parseFloat($("#cv").value),f=$("#cf").value,t=$("#ct").value;let r;
+  if(isNaN(v)){$("#cr").textContent="Enter a number";$("#cu").textContent="";return}
+  if(c==="Temperature"){const C=f==="°C"?v:f==="K"?v-273.15:(v-32)*5/9;r=t==="°C"?C:t==="K"?C+273.15:C*9/5+32}
+  else r=v*U[c][f]/U[c][t];
+  $("#cr").textContent=fmt(r);$("#cu").textContent=`${t}  (${fmt(v)} ${f})`}
+$("#cat").onchange=units;["#cv","#cf","#ct"].forEach(s=>$(s).oninput=conv);
+$("#swap").onclick=()=>{const a=$("#cf").value;$("#cf").value=$("#ct").value;$("#ct").value=a;conv()};units();
+
+/* tabs */
+function tabs(id,fn){const el=$(id);el.innerHTML=M.map((m,i)=>`<button role="tab" aria-selected="${i==0}">${m}</button>`).join("");
+  el.onclick=e=>{const b=e.target.closest("button");if(!b)return;[...el.children].forEach(x=>x.setAttribute("aria-selected",x===b));fn([...el.children].indexOf(b))};fn(0)}
+
+/* formulas */
+const F=[
+[["Ohm’s law","V = I·R"],["Power","P = V·I = I²·R"],["Resistors in series","R = R₁ + R₂ + …"],["Resistors in parallel","1/R = 1/R₁ + 1/R₂ + …"],["Kirchhoff’s laws","ΣI = 0 at a node, ΣV = 0 around a loop"],["Capacitor energy","E = ½·C·V²"],["RC time constant","τ = R·C"],["Resonance","f₀ = 1 / (2π·√(LC))"],["Three-phase power","P = √3·V_L·I_L·cos φ"],["Ideal transformer","Vp / Vs = Np / Ns"]],
+[["Newton’s second law","ΣF = m·a"],["Normal stress","σ = F / A"],["Strain","ε = ΔL / L"],["Hooke’s law","σ = E·ε"],["Bending stress","σ = M·y / I"],["Beam deflection (central load)","δ = P·L³ / (48·E·I)"],["Torsion","τ = T·r / J"],["Kinetic energy","KE = ½·m·v²"],["Carnot efficiency","η = 1 − T_c / T_h"],["Bernoulli equation","p + ½ρv² + ρgh = constant"],["Reynolds number","Re = ρ·v·D / μ"]],
+[["Ideal gas law","P·V = n·R·T"],["Mole balance","In − Out + Generation = Accumulation"],["Conversion","X = (N₀ − N) / N₀"],["Arrhenius equation","k = A·e^(−Eₐ / RT)"],["Gibbs free energy","ΔG = ΔH − T·ΔS"],["Raoult’s law","pᵢ = xᵢ·pᵢ^sat"],["Fick’s law","J = −D·dC/dx"],["Fourier’s law","q = −k·dT/dx"],["Heat exchanger","Q = U·A·ΔT_lm"],["CSTR design","V = F_A0·X / (−r_A)"]],
+[["Bending stress","σ = M·y / I"],["Shear stress in beams","τ = V·Q / (I·b)"],["Max moment, simply supported UDL","M = w·L² / 8"],["Euler buckling load","P_cr = π²·E·I / (K·L)²"],["Continuity","Q = A·v"],["Manning’s equation","V = (1/n)·R^(2/3)·S^(1/2)"],["Darcy’s law","Q = −K·A·dh/dl"],["Effective stress","σ′ = σ − u"],["Axial deformation","δ = P·L / (A·E)"]],
+[["Values of n bits","2ⁿ possible values"],["De Morgan’s laws","¬(A·B) = ¬A + ¬B"],["CPU time","T = IC × CPI / f"],["Amdahl’s law","S = 1 / ((1 − p) + p / s)"],["Average memory access time","AMAT = hit time + miss rate × penalty"],["Dynamic power","P = α·C·V²·f"],["Nyquist rate","f_s ≥ 2·f_max"],["Shannon capacity","C = B·log₂(1 + S/N)"],["Master theorem form","T(n) = a·T(n/b) + f(n)"],["Binary search","O(log n) comparisons"]]];
+tabs("#ft",i=>{$("#fp").innerHTML=F[i].map(f=>`<div class="f"><b>${f[0]}</b><code>${f[1]}</code></div>`).join("")});
+
+/* tests */
+const T=[
+[["A 12 V source is connected across a 4 Ω resistor. What is the current?",["2 A","3 A","4 A","48 A"],1],["Three 6 Ω resistors are connected in parallel. The total resistance is:",["2 Ω","6 Ω","12 Ω","18 Ω"],0],["The time constant of an RC circuit with R = 10 kΩ and C = 100 µF is:",["0.1 s","1 s","10 s","100 s"],1],["Which component stores energy in a magnetic field?",["Resistor","Capacitor","Inductor","Diode"],2],["A transformer has 1000 primary turns and 100 secondary turns. With 230 V on the primary, the secondary voltage is:",["23 V","2300 V","10 V","46 V"],0]],
+[["A 20 kN force acts on a 100 mm² cross-section. The stress is:",["20 MPa","200 MPa","2 MPa","2000 MPa"],1],["Hooke’s law relates stress and strain through:",["Poisson’s ratio","Young’s modulus","Density","Specific heat"],1],["The Carnot efficiency between 600 K and 300 K is:",["25%","50%","75%","100%"],1],["The kinetic energy of a 2 kg mass moving at 3 m/s is:",["6 J","9 J","12 J","18 J"],1],["Pipe flow is usually laminar when the Reynolds number is below about:",["100","2300","10 000","100 000"],1]],
+[["At 0 °C and 1 atm, one mole of an ideal gas occupies about:",["11.2 L","22.4 L","24.8 L","44.8 L"],1],["For a steady-state process with no reaction, the mole balance says:",["In = Out","In > Out","In = 0","Out = 0"],0],["At constant T and P, a negative ΔG means the process is:",["Non-spontaneous","Spontaneous","At equilibrium only","Impossible"],1],["According to the Arrhenius equation, raising the temperature usually makes the rate constant:",["Smaller","Unchanged","Larger","Zero"],2],["Which unit operation separates components by differences in volatility?",["Filtration","Distillation","Centrifugation","Sieving"],1]],
+[["The Euler buckling load of a column is proportional to:",["L","1/L²","L²","1/L"],1],["Concrete is strongest in:",["Tension","Compression","Torsion","Bending only"],1],["Water flows at 3 m/s through a pipe of area 0.02 m². The flow rate is:",["0.06 m³/s","0.6 m³/s","6 m³/s","0.0067 m³/s"],0],["Terzaghi’s effective stress is:",["σ + u","σ − u","σ × u","σ / u"],1],["The maximum bending moment of a simply supported beam under a uniform load w over span L is:",["wL/8","wL²/8","wL²/4","wL/2"],1]],
+[["The largest unsigned integer in 8 bits is:",["127","255","256","511"],1],["De Morgan’s law says ¬(A·B) equals:",["¬A·¬B","¬A + ¬B","A + B","A·¬B"],1],["Binary search on a sorted array has time complexity:",["O(n)","O(log n)","O(n log n)","O(1)"],1],["If 50% of a program is sped up infinitely, Amdahl’s law gives a maximum overall speedup of:",["1.5×","2×","4×","Unlimited"],1],["Which data structure follows first-in, first-out order?",["Stack","Queue","Tree","Heap"],1]]];
+tabs("#tt",i=>{const t=T[i];$("#tp").innerHTML=t.map((q,n)=>`<fieldset class="q"><legend>${n+1}. ${q[0]}</legend>${q[1].map((o,k)=>`<label data-k="${k}"><input type="radio" name="q${n}" value="${k}"> ${o}</label>`).join("")}</fieldset>`).join("")+`<button class="btn" id="chk" type="button">Check answers</button> <span class="big" id="sc" style="font-size:1.6rem"></span>`;
+  $("#chk").onclick=()=>{let s=0;t.forEach((q,n)=>{const ls=document.querySelectorAll(`[name=q${n}]`);ls.forEach(r=>{const l=r.parentElement;l.classList.remove("ok","bad");if(+r.value===q[2])l.classList.add("ok");else if(r.checked)l.classList.add("bad");if(r.checked&&+r.value===q[2])s++})});$("#sc").textContent=`${s} / ${t.length}`}});
+
+/* careers */
+const C=[
+{d:"Designs and maintains systems that generate, transmit and use electricity and signals, from power grids to microchips.",j:["Power systems engineer","Control and automation engineer","Electronics designer","RF and telecom engineer","Renewable energy engineer"],s:[110,62,55],n:[["MintNeuro raises $5 million to scale up its chip platform for neural devices","7 Oct 2026, Imperial College London","https://www.imperial.ac.uk/electrical-engineering/news-and-events/latest-news-"],["Rohde & Schwarz shows an in-lab 6G sensing test platform","3 Nov 2026, ElectronicSpecifier","https://www.electronicspecifier.com/products/page/48/?page=6373"]],b:["IEEE","https://www.ieee.org"]},
+{d:"Applies mechanics and thermodynamics to design machines, engines, robots and manufacturing systems.",j:["Design engineer","HVAC engineer","Automotive or aerospace engineer","Manufacturing engineer","Robotics engineer"],s:[100,58,50],n:[["US Army flies a hybrid-electric drone with a 3D-printed heavy-fuel rotary engine that drops bulky liquid cooling","5 Nov 2026, Tom’s Hardware","https://www.tomshardware.com/uk/news/archive/2026/11"]],b:["ASME","https://www.asme.org"]},
+{d:"Turns raw materials into fuels, medicines, plastics and food at industrial scale, safely and efficiently.",j:["Process engineer","Oil, gas and petrochemical engineer","Pharmaceutical production engineer","Environmental engineer","Hydrogen and battery materials engineer"],s:[120,62,58],n:[["Wison Engineering launches Flex-to-X, a configurable engineering platform for green fuels and chemicals, at ADIPEC 2026","10 Nov 2026, PR Newswire","https://www.finanznachrichten.de/nachrichten-2026-11/70082200-wison-engineering-launches-flex-to-x-an-integrated-engineering-product-platform-for-green-fuels-and-chemicals-008.htm"],["MOL Group opens its first biomethane plant in Szarvas, Hungary","14 Oct 2026, Chemical Engineering","https://chemengonline.com/category/uncategorized/page/4"]],b:["AIChE","https://www.aiche.org"]},
+{d:"Plans, designs and builds roads, bridges, buildings, water systems and other infrastructure.",j:["Structural engineer","Site and construction engineer","Geotechnical engineer","Water resources engineer","Transport planner"],s:[97,55,48],n:[["Jones Bros Civil Engineering UK reports revenue of £232.8m, up 55% on 2025","10 Nov 2026, Business Live","https://www.aol.co.uk/articles/family-owned-civil-engineering-business-145544000.html"],["Opening of the I-24 Ohio River bridge is pushed back to November","14 Oct 2026, The Paducah Sun","https://www.paducahsun.com/news/delay-pushes-i-24-ohio-river-bridge-opening-to-november/article_2a39974b-29ed-5a5c-aed7-8ba395b3fb21.html"]],b:["ASCE","https://www.asce.org"]},
+{d:"Combines electronics and computer science to build processors, embedded systems, networks and the software that runs on them.",j:["Embedded systems engineer","Chip and hardware design engineer","Software engineer","Network and cloud engineer","Cybersecurity engineer"],s:[135,65,58],n:[["Google adds two new specialized chips to its AI hardware line","10 Nov 2026, TechCrunch","https://techcrunch.com/2026/11/10/google-broadens-its-ai-hardware-portfolio-with-two-new-specialized-chips/"],["SambaNova and Supermicro target 10,000 SN50 chips for AI inference","5 Nov 2026, Hardware Watch","https://www.thecodew.com/2026/11/hardware-watch-november-5.html"]],b:["ACM","https://www.acm.org"]}];
+const R=["USA","Europe","Gulf region"];
+tabs("#ct2",i=>{const c=C[i];$("#cp").innerHTML=`<h3>${M[i]} engineering</h3><p>${c.d}</p><div class="chips">${c.j.map(x=>`<span class="chip">${x}</span>`).join("")}</div><div class="cols"><div><h3 style="font-size:1.15rem">Average yearly salary</h3>${c.s.map((v,k)=>`<div class="bar"><span>${R[k]}</span><i><span data-w="${v/140*100}"></span></i><b>$${v}k</b></div>`).join("")}<p class="mut" style="font-size:.88rem">Gulf salaries are often tax-free and may include housing allowances.</p></div><div class="news"><h3 style="font-size:1.15rem;margin-bottom:.5rem">Latest news</h3>${c.n.map(n=>`<a href="${n[2]}" target="_blank" rel="noopener noreferrer"><strong>${n[0]}</strong><small>${n[1]}</small></a>`).join("")}<a href="${c.b[1]}" target="_blank" rel="noopener noreferrer"><strong>More from ${c.b[0]}</strong><small>Professional society</small></a></div></div>`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll("#cp [data-w]").forEach(e=>e.style.width=e.dataset.w+"%")))});
+
+/* scroll effects */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+let tk=false;addEventListener("scroll",()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{const h=document.documentElement;$("#bar").style.transform=`scaleX(${h.scrollTop/(h.scrollHeight-h.clientHeight||1)})`;tk=false})},{passive:true});
+</script>
+</body>
+</html>
