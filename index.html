@@ -243,6 +243,33 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
 #gpa .big{
   font:700 2.8rem/1 Outfit,sans-serif;
   color:var(--pri);
+}
+.converter-result{
+  margin-top:1.5rem;
+  padding:1.4rem;
+  border:1px solid rgba(46,196,182,.25);
+  border-radius:10px;
+  background:linear-gradient(135deg,rgba(46,196,182,.07),transparent);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.result-label{
+  font:600 .68rem Outfit,sans-serif;
+  letter-spacing:.14em;
+  color:var(--mint);
+  margin-bottom:.35rem;
+}
+
+#convert .big{
+  font:700 clamp(2rem,5vw,3rem)/1 Outfit,sans-serif;
+  color:var(--ink);
+  word-break:break-word;
+}
+
+#convert .res .mut{
+  margin-top:.25rem;
 }                                   
 </style>
 </head>
@@ -312,15 +339,22 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
 </section>
 
 <section id="convert">
-  <h2 class="rv">Unit converter</h2>
-  <p class="sub rv">Fourteen quantities used across every engineering major, including temperature.</p>
+  <div class="section-head rv">
+  <div class="section-kicker">02 / ENGINEERING UTILITIES</div>
+  <h2>Unit converter</h2>
+  <p class="sub">Convert engineering quantities quickly across SI and common industrial units.</p>
+</div>
   <div class="card rv" style="--i:1">
     <div class="stack">
       <label>Quantity<select id="cat"></select></label>
       <div class="grid2"><label>Value<input id="cv" type="number" step="any" value="1"></label><label>From<select id="cf"></select></label></div>
       <div class="grid2"><label>To<select id="ct"></select></label><button class="btn ghost" id="swap" type="button" style="align-self:end">Swap units</button></div>
     </div>
-    <div class="res"><span class="big" id="cr">0</span><span class="mut" id="cu"></span></div>
+    <div class="res converter-result">
+  <span class="result-label">CONVERSION RESULT</span>
+  <span class="big" id="cr">0</span>
+  <span class="mut" id="cu"></span>
+</div>
   </div>
 </section>
 
