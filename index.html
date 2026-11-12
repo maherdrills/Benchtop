@@ -200,7 +200,153 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
     grid-template-columns:1fr;
     padding-bottom:3rem;
   }
-} 
+}
+.about-section{
+  max-width:1100px;
+  margin:0 auto;
+  padding:1rem 1.25rem 5rem;
+}
+
+.about-wrap{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);
+  gap:4rem;
+  align-items:start;
+  padding:4rem 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.about-main{
+  max-width:760px;
+}
+
+.about-main h2{
+  font:700 clamp(2.2rem,5vw,4.2rem)/1.02 Outfit,sans-serif;
+  letter-spacing:-.04em;
+  margin:.6rem 0 1.8rem;
+  color:var(--ink);
+}
+
+.about-main p{
+  max-width:720px;
+  margin:0 0 1.1rem;
+  color:var(--muted);
+  line-height:1.75;
+}
+
+.about-main strong{
+  color:var(--ink);
+}
+
+.about-final{
+  margin-top:1.8rem !important;
+  padding:1.2rem 1.4rem;
+  border-left:2px solid var(--pri);
+  background:rgba(255,159,28,.05);
+  color:var(--ink) !important;
+}
+
+.about-final strong{
+  color:var(--pri);
+}
+
+.about-founder{
+  position:relative;
+  padding:1.5rem;
+  min-height:330px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:
+    linear-gradient(145deg,rgba(255,159,28,.08),transparent 55%),
+    var(--card);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+}
+
+.about-founder::before{
+  content:"BENCHTOP";
+  position:absolute;
+  right:-1.5rem;
+  bottom:1rem;
+  font:800 4rem/1 Outfit,sans-serif;
+  letter-spacing:-.06em;
+  color:rgba(255,255,255,.025);
+  pointer-events:none;
+}
+
+.about-label{
+  font:600 .7rem Outfit,sans-serif;
+  letter-spacing:.16em;
+  color:var(--pri);
+}
+
+.about-name{
+  position:relative;
+  z-index:1;
+  margin-top:2rem;
+  font:700 clamp(2.2rem,5vw,3.8rem)/.9 Outfit,sans-serif;
+  letter-spacing:-.045em;
+  color:var(--ink);
+}
+
+.about-role{
+  position:relative;
+  z-index:1;
+  color:var(--muted);
+  line-height:1.5;
+  margin-top:1.5rem;
+}
+
+.about-founder > a{
+  position:relative;
+  z-index:1;
+  margin-top:1.4rem;
+  color:var(--pri);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.about-founder > a:hover{
+  text-decoration:underline;
+}
+
+.about-built{
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-top:1.5rem;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+  font-size:.72rem;
+}
+
+.about-built span{
+  color:var(--muted);
+  letter-spacing:.12em;
+}
+
+.about-built strong{
+  color:var(--ink);
+  letter-spacing:.08em;
+}
+
+@media (max-width:800px){
+  .about-wrap{
+    grid-template-columns:1fr;
+    gap:2rem;
+    padding:3rem 0;
+  }
+
+  .about-founder{
+    min-height:280px;
+  }
+}                                   
 .section-head{
   margin-bottom:1.5rem;
 }
@@ -330,6 +476,80 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
   </div>
   <div class="card rv" style="--i:2" id="profile">   <div style="font:600 .72rem Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--pri);margin-bottom:1.2rem">     BENCHTOP / SYSTEM   </div>    <h3 style="font:700 1.45rem Outfit,sans-serif;margin:0 0 .6rem">     Your engineering toolkit.   </h3>    <p style="color:var(--muted);line-height:1.6;margin:0 0 1.5rem">     Everything you need to study smarter, calculate faster and build your engineering career.   </p>    <div style="display:grid;gap:.65rem">     <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Calculators</span>       <strong style="color:var(--pri)">READY</strong>     </div>      <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Formula sheets</span>       <strong style="color:var(--pri)">READY</strong>     </div>      <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Mock tests</span>       <strong style="color:var(--pri)">READY</strong>     </div>      <div style="display:flex;justify-content:space-between;padding:.85rem 0;border-top:1px solid var(--line)">       <span style="color:var(--muted)">Career tools</span>       <strong style="color:var(--pri)">READY</strong>     </div>   </div>    <div style="margin-top:1.4rem;padding:.8rem 1rem;border:1px solid rgba(255,159,28,.25);background:rgba(255,159,28,.06);border-radius:8px;font-size:.82rem;color:var(--muted)">     <span style="color:var(--pri)">●</span>     Engineering mode active   </div> </div>
 </section>
+
+<section class="about-section">
+  <div class="about-wrap">
+    <div class="about-main rv">
+      <div class="section-kicker">00 / ABOUT BENCHTOP</div>
+      <h2>Built by an engineering student.<br>For engineering students.</h2>
+
+      <p>
+        I’m <strong>Maher Khodor</strong>, a Chemical Engineering student,
+        the founder of <strong>BENCHTOP</strong>, and the person behind
+        <strong>@maherdrills</strong>.
+      </p>
+
+      <p>
+        I created BENCHTOP for one simple reason:
+        <strong>engineering school is already complicated enough.</strong>
+      </p>
+
+      <p>
+        Between lectures, formulas, assignments, exams, lab reports,
+        career decisions, and trying to remember something you definitely
+        studied three months ago, students need tools that are actually useful.
+      </p>
+
+      <p>
+        So I built BENCHTOP — an engineering student hub bringing together
+        <strong>calculators, formulas, practice tests, career information,
+        and industry knowledge</strong> in one place.
+      </p>
+
+      <p>
+        The idea is simple:
+        <strong>less searching, less confusion, more engineering.</strong>
+      </p>
+
+      <p>
+        And this is only version one. BENCHTOP will keep growing with more
+        engineering tools, larger question banks, better resources,
+        career features, and new ideas shaped by what students actually need.
+      </p>
+
+      <p>
+        I’m building this as a student, for students — so if you find
+        something useful, something missing, or something that could be better,
+        let me know.
+      </p>
+
+      <p class="about-final">
+        Because BENCHTOP isn't supposed to be perfect.<br>
+        <strong>It’s supposed to keep getting better.</strong>
+      </p>
+    </div>
+
+    <div class="about-founder rv" style="--i:2">
+      <div class="about-label">FOUNDER</div>
+      <div class="about-name">MAHER<br>KHODOR</div>
+
+      <div class="about-role">
+        Chemical Engineering<br>
+        Founder of BENCHTOP
+      </div>
+
+      <a href="https://www.instagram.com/maherdrills/" target="_blank" rel="noopener">
+        @maherdrills ↗
+      </a>
+
+      <div class="about-built">
+        <span>BUILT BY</span>
+        <strong>MAHERDRILLS</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tool-strip">
   <div class="tool-card rv">
     <span class="tool-num">01</span>
