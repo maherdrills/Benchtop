@@ -21,12 +21,13 @@ h1,h2,h3{font-family:Outfit,system-ui,sans-serif;line-height:1.1;margin:0}
 a{color:var(--pri)}
 :focus-visible{outline:3px solid var(--pri);outline-offset:2px}
 #bar{position:fixed;left:0;right:0;top:0;height:3px;background:var(--pri);transform:scaleX(0);transform-origin:0 50%;z-index:40}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(17,22,27,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{max-width:1100px;margin:0 auto;padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem}
-.logo{font:700 1.3rem Outfit,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto}
+.logo{font:700 1.45rem Outfit,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto;letter-spacing:.08em}
+.logo::before{content:"▰";color:var(--pri);margin-right:.45rem;font-size:.9em}
 .links{display:flex;gap:.25rem;overflow-x:auto}
-.links a{padding:.4rem .75rem;border-radius:99px;color:var(--muted);text-decoration:none;font-weight:500;white-space:nowrap}
-.links a:hover{background:var(--bg);color:var(--ink)}
+.links a{padding:.5rem .85rem;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:500;white-space:nowrap;border:1px solid transparent;transition:.2s}
+.links a:hover{background:var(--card);color:var(--pri);border-color:var(--line)}
 #hi{font-weight:500;white-space:nowrap}
 section{max-width:1100px;margin:0 auto;padding:4.5rem 1.25rem 0}
 .hero{display:grid;gap:2rem;padding-top:3.5rem;align-items:center}
