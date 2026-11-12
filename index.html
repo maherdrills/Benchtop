@@ -200,6 +200,49 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
     grid-template-columns:1fr;
     padding-bottom:3rem;
   }
+} 
+.section-head{
+  margin-bottom:1.5rem;
+}
+
+.section-kicker{
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  margin-bottom:.55rem;
+  font:600 .7rem Outfit,sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--pri);
+}
+
+.section-kicker::before{
+  content:"";
+  width:24px;
+  height:1px;
+  background:var(--pri);
+}
+
+.section-head h2{
+  font-size:clamp(2rem,4vw,3rem);
+  letter-spacing:-.035em;
+}
+
+.section-head .sub{
+  margin:.7rem 0 0;
+  max-width:650px;
+}
+#gpa .res{
+  margin-top:1.5rem;
+  padding:1.25rem;
+  border:1px solid rgba(255,159,28,.25);
+  border-radius:10px;
+  background:linear-gradient(135deg,rgba(255,159,28,.08),transparent);
+}
+
+#gpa .big{
+  font:700 2.8rem/1 Outfit,sans-serif;
+  color:var(--pri);
 }                                   
 </style>
 </head>
@@ -256,8 +299,11 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
   </div>
 </section>
 <section id="gpa">
-  <h2 class="rv">GPA calculator</h2>
-  <p class="sub rv">Add each course with its grade and credits. Uses the US 4.0 scale; other systems (such as the Italian 30-point scale) need their own conversion.</p>
+  <div class="section-head rv">
+  <div class="section-kicker">01 / ACADEMIC PERFORMANCE</div>
+  <h2>GPA calculator</h2>
+  <p class="sub">Calculate your semester GPA using course grades and credits.</p>
+</div>
   <div class="card rv" style="--i:1">
     <div id="rows"></div>
     <button class="btn ghost" id="add" type="button">Add course</button>
