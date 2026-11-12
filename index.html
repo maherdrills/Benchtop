@@ -6,7 +6,7 @@
 <title>BENCHTOP | The Engineering Student Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
 :root{--bg:#0A0D10;--card:#11161B;--ink:#F2F4F5;--muted:#8E9AA3;--line:#273038;--pri:#FF9F1C;--pri-ink:#0A0D10;--mint:#2EC4B6;--warm:#FFB703;--ok:#2ECC71;--bad:#FF5C5C;
@@ -270,6 +270,48 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
 
 #convert .res .mut{
   margin-top:.25rem;
+}
+.fgrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.75rem;
+}
+
+.f{
+  min-height:100px;
+  padding:1.15rem 1.25rem;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:linear-gradient(145deg,rgba(255,159,28,.035),var(--card));
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:.55rem;
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.f:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,159,28,.4);
+}
+
+.f b{
+  font:600 .82rem Outfit,sans-serif;
+  color:var(--muted);
+  letter-spacing:.02em;
+}
+
+.f code{
+  font:600 1rem/1.4 "DM Mono",monospace;
+  color:var(--pri);
+  background:none;
+  padding:0;
+}
+
+@media (max-width:700px){
+  .fgrid{
+    grid-template-columns:1fr;
+  }
 }                                   
 </style>
 </head>
@@ -359,8 +401,11 @@ footer{max-width:1100px;margin:0 auto;padding:4rem 1.25rem 3rem;color:var(--mute
 </section>
 
 <section id="formulas">
-  <h2 class="rv">Formula sheet</h2>
-  <p class="sub rv">The essentials for each major, in one place for quick revision.</p>
+  <div class="section-head rv">
+  <div class="section-kicker">03 / QUICK REFERENCE</div>
+  <h2>Formula sheet</h2>
+  <p class="sub">The essential equations for fast engineering revision.</p>
+</div>
   <div class="tabs rv" id="ft" role="tablist"></div>
   <div class="fgrid" id="fp"></div>
 </section>
